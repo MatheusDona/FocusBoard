@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FocusBoard - Meu perfil</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <!-- Menu lateral -->
+  <aside class="menu-lateral">
+    <div class="logo">FocusBoard</div>
+    <nav>
+      <a href="index.html">Principal</a>
+      <a href="perfil.html" class="ativo">Meu perfil</a>
+    </nav>
+    <a href="#confirmar-sair" class="botao-sair">Sair</a>
+  </aside>
+
+  <main class="conteudo">
+    <div class="topo">
+      <h1>Meu perfil</h1>
+    </div>
+
+    <!-- Alterar nome de usuário -->
+    <section class="secao">
+      <h2>Nome de usuário</h2>
+      <form action="#" method="post">
+        <label for="usuario">Novo nome de usuário</label>
+        <input type="text" id="usuario" name="usuario" required>
+        <button type="submit" class="botao">Salvar nome</button>
+      </form>
+    </section>
+
+    <!-- Alterar senha -->
+    <section class="secao">
+      <h2>Senha</h2>
+      <form action="#" method="post">
+        <label for="senha_antiga">Senha atual</label>
+        <input type="password" id="senha_antiga" name="senha_antiga" required>
+
+        <label for="senha_nova">Nova senha</label>
+        <input type="password" id="senha_nova" name="senha_nova" minlength="8" required>
+
+        <label for="confirmar_senha">Confirmar nova senha</label>
+        <input type="password" id="confirmar_senha" name="confirmar_senha" minlength="8" required>
+
+        <button type="submit" class="botao">Alterar senha</button>
+      </form>
+    </section>
+
+    <!-- Sair -->
+    <section class="secao">
+      <h2>Sair da conta</h2>
+      <a href="#confirmar-sair" class="botao botao-perigo">Sair</a>
+    </section>
+  </main>
+
+  <!-- Janela de confirmação para sair -->
+  <div class="modal" id="confirmar-sair">
+    <div class="modal-caixa">
+      <h2>Sair da conta?</h2>
+      <p>Tem certeza que deseja sair?</p>
+      <div class="botoes-form">
+        <a href="#" class="botao botao-cinza">Cancelar</a>
+        <a href="login.html" class="botao botao-perigo">Sim, sair</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

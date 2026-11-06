@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FocusBoard - Principal</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <!-- Menu lateral -->
+  <aside class="menu-lateral">
+    <div class="logo">FocusBoard</div>
+    <nav>
+      <a href="index.html" class="ativo">Principal</a>
+      <a href="perfil.html">Meu perfil</a>
+    </nav>
+    <a href="#confirmar-sair" class="botao-sair">Sair</a>
+  </aside>
+
+  <main class="conteudo">
+    <div class="topo">
+      <h1>Meu quadro</h1>
+      <a href="#nova-tarefa" class="botao">+ Adicionar tarefa</a>
+    </div>
+
+    <div class="quadro">
+
+      <!-- Coluna FAZER -->
+      <section class="coluna fazer">
+        <h2>Fazer</h2>
+
+        <div class="card">
+          <details class="menu-card">
+            <summary>⋮</summary>
+            <div class="opcoes">
+              <a href="#editar-tarefa">Editar tarefa</a>
+              <a href="#trocar-status">Trocar status</a>
+              <a href="#" class="excluir">Excluir tarefa</a>
+            </div>
+          </details>
+          <h3>Estudar FastAPI</h3>
+          <p>Ler a documentação e criar as primeiras rotas.</p>
+          <div class="rodape-card">
+            <span class="etiqueta alta">Alta</span>
+            <span>Prazo: 12/11/2026</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <details class="menu-card">
+            <summary>⋮</summary>
+            <div class="opcoes">
+              <a href="#editar-tarefa">Editar tarefa</a>
+              <a href="#trocar-status">Trocar status</a>
+              <a href="#" class="excluir">Excluir tarefa</a>
+            </div>
+          </details>
+          <h3>Escrever o README</h3>
+          <p>Explicar como rodar o projeto no GitHub.</p>
+          <div class="rodape-card">
+            <span class="etiqueta baixa">Baixa</span>
+            <span>Prazo: 20/11/2026</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Coluna FAZENDO -->
+      <section class="coluna fazendo">
+        <h2>Fazendo</h2>
+
+        <div class="card">
+          <details class="menu-card">
+            <summary>⋮</summary>
+            <div class="opcoes">
+              <a href="#editar-tarefa">Editar tarefa</a>
+              <a href="#trocar-status">Trocar status</a>
+              <a href="#" class="excluir">Excluir tarefa</a>
+            </div>
+          </details>
+          <h3>Criar tela de login</h3>
+          <p>Montar o formulário de entrada e cadastro.</p>
+          <div class="rodape-card">
+            <span class="etiqueta media">Média</span>
+            <span>Prazo: 08/11/2026</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Coluna FEITO -->
+      <section class="coluna feito">
+        <h2>Feito</h2>
+
+        <div class="card">
+          <details class="menu-card">
+            <summary>⋮</summary>
+            <div class="opcoes">
+              <a href="#editar-tarefa">Editar tarefa</a>
+              <a href="#trocar-status">Trocar status</a>
+              <a href="#" class="excluir">Excluir tarefa</a>
+            </div>
+          </details>
+          <h3>Modelar o banco</h3>
+          <p>Definir as tabelas usuarios e tarefas.</p>
+          <div class="rodape-card">
+            <span class="etiqueta alta">Alta</span>
+            <span>Prazo: 02/11/2026</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Coluna PENDENTE -->
+      <section class="coluna pendente">
+        <h2>Pendente</h2>
+
+        <div class="card">
+          <details class="menu-card">
+            <summary>⋮</summary>
+            <div class="opcoes">
+              <a href="#editar-tarefa">Editar tarefa</a>
+              <a href="#trocar-status">Trocar status</a>
+              <a href="#" class="excluir">Excluir tarefa</a>
+            </div>
+          </details>
+          <h3>Configurar o Git</h3>
+          <p>Criar o repositório e fazer o primeiro commit.</p>
+          <div class="rodape-card">
+            <span class="etiqueta media">Média</span>
+            <span>Prazo: 30/10/2026</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Janela: adicionar tarefa -->
+  <div class="modal" id="nova-tarefa">
+    <div class="modal-caixa">
+      <h2>Adicionar tarefa</h2>
+      <form action="#" method="post">
+        <label for="titulo">Título</label>
+        <input type="text" id="titulo" name="titulo" required>
+
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" name="descricao"></textarea>
+
+        <label for="prioridade">Prioridade</label>
+        <select id="prioridade" name="prioridade">
+          <option value="baixa">Baixa</option>
+          <option value="media">Média</option>
+          <option value="alta">Alta</option>
+        </select>
+
+        <label for="data_prazo">Data de prazo</label>
+        <input type="date" id="data_prazo" name="data_prazo" required>
+
+        <div class="botoes-form">
+          <a href="#" class="botao botao-cinza">Cancelar</a>
+          <button type="submit" class="botao">Salvar tarefa</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Janela: editar tarefa (já com os dados preenchidos) -->
+  <div class="modal" id="editar-tarefa">
+    <div class="modal-caixa">
+      <h2>Editar tarefa</h2>
+      <form action="#" method="post">
+        <label for="editar_titulo">Título</label>
+        <input type="text" id="editar_titulo" name="titulo" value="Estudar FastAPI" required>
+
+        <label for="editar_descricao">Descrição</label>
+        <textarea id="editar_descricao" name="descricao">Ler a documentação e criar as primeiras rotas.</textarea>
+
+        <label for="editar_prioridade">Prioridade</label>
+        <select id="editar_prioridade" name="prioridade">
+          <option value="baixa">Baixa</option>
+          <option value="media">Média</option>
+          <option value="alta" selected>Alta</option>
+        </select>
+
+        <label for="editar_prazo">Data de prazo</label>
+        <input type="date" id="editar_prazo" name="data_prazo" value="2026-11-12" required>
+
+        <div class="botoes-form">
+          <a href="#" class="botao botao-cinza">Cancelar</a>
+          <button type="submit" class="botao">Salvar alterações</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Janela: trocar status -->
+  <div class="modal" id="trocar-status">
+    <div class="modal-caixa">
+      <h2>Trocar status</h2>
+      <form action="#" method="post">
+        <label for="status">Novo status</label>
+        <select id="status" name="status">
+          <option value="fazer">Fazer</option>
+          <option value="fazendo">Fazendo</option>
+          <option value="feito">Feito</option>
+          <option value="pendente">Pendente</option>
+        </select>
+
+        <div class="botoes-form">
+          <a href="#" class="botao botao-cinza">Cancelar</a>
+          <button type="submit" class="botao">Trocar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Janela de confirmação para sair -->
+  <div class="modal" id="confirmar-sair">
+    <div class="modal-caixa">
+      <h2>Sair da conta?</h2>
+      <p>Tem certeza que deseja sair?</p>
+      <div class="botoes-form">
+        <a href="#" class="botao botao-cinza">Cancelar</a>
+        <a href="login.html" class="botao botao-perigo">Sim, sair</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

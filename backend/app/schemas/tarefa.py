@@ -17,7 +17,6 @@ class TarefaCreate(BaseModel):
     titulo: str
     descricao: str | None = None
     prioridade: PrioridadeEnum
-    status: StatusEnum
     data_prazo: date | None = None
 
 class TarefaResponse(BaseModel):
@@ -30,4 +29,12 @@ class TarefaResponse(BaseModel):
     status: StatusEnum
     data_prazo: date | None = None
     usuario_id: int
+
+class TarefaUpdate(BaseModel):
+
+    titulo: str | None = None
+    descricao: str | None = None
+    prioridade: PrioridadeEnum | None = None
+    status: StatusEnum | None = None
+    data_prazo: date | None = None
     

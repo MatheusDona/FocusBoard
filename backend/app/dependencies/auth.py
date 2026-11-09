@@ -17,7 +17,13 @@ def get_usuario_atual(token: str = Depends(oauth2_scheme), db: Session = Depends
         )
 
     usuario_id = dados.get("sub")
-    usuario = db.query(Usuario).filter(Usuario.id == usuario_id).first()
+
+    if not usuario_id or not usuario_id.isdigit():
+        raise HTTPException(
+            status_code=401,
+            detail="Token inválido"
+        )
+    usuario = db.query(Usuario).filter(Usuario.id == int(usuario_id)).first()
 
     if not usuario:
         raise HTTPException(
@@ -25,4 +31,4 @@ def get_usuario_atual(token: str = Depends(oauth2_scheme), db: Session = Depends
             detail="Usuário não encontrado"
         )
 
-    return usuario 
+    return usuario      

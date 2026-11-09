@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from app.database import Base, engine
 from app.models.usuario import Usuario
+from app.models.tarefa import Tarefa
 from app.routes.auth import router as auth_router
 
 app = FastAPI(

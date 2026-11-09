@@ -23,7 +23,7 @@ def criar_token(usuario_id: int):
 
     return token
 
-def vereificar_token(token: str):
+def verificar_token(token: str):
     try:
         dados = jwt.decode(
             token,

@@ -200,7 +200,6 @@ h1 { margin: 0; font-size: 26px; }
 .opcoes a:hover { background: #f0f4fa; }
 .opcoes .excluir { color: #c62828; }
 
-/* ----- Janelas (formulários e confirmação) ----- */
 .modal {
   display: none;
   position: fixed;
@@ -251,7 +250,6 @@ textarea { height: 80px; resize: vertical; }
   margin-top: 18px;
 }
 
-/* ----- Perfil ----- */
 .secao {
   background: #ffffff;
   border-radius: 12px;
@@ -263,7 +261,6 @@ textarea { height: 80px; resize: vertical; }
 .secao h2 { margin: 0 0 6px 0; font-size: 18px; }
 .secao .botao { margin-top: 16px; }
 
-/* ----- Login e cadastro ----- */
 .pagina-login {
   display: flex;
   align-items: center;
@@ -285,3 +282,118 @@ textarea { height: 80px; resize: vertical; }
 .caixa-login .botao { width: 100%; margin-top: 18px; }
 .link-baixo { text-align: center; margin-top: 16px; font-size: 14px; }
 .link-baixo a { color: #4a7bd0; }
+
+.menu-opcoes {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 5;
+}
+
+.menu-opcoes summary {
+    cursor: pointer;
+    list-style: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #777;
+    padding: 0 8px;
+    border-radius: 6px;
+}
+
+.menu-opcoes summary::-webkit-details-marker {
+    display: none;
+}
+
+.menu-opcoes summary:hover {
+    background-color: #eee;
+}
+
+.menu-dropdown {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    width: 140px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    padding: 5px;
+    z-index: 10;
+}
+
+.menu-dropdown button {
+    display: block;
+    width: 100%;
+    padding: 9px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #333;
+}
+
+.menu-dropdown button:hover {
+    background-color: #f1f1f1;
+}
+
+.mensagem {
+    display: none;
+    padding: 10px 14px;
+    margin-top: 12px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.mensagem.sucesso {
+    display: block;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+.mensagem.erro {
+    display: block;
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+
+.mensagem.aviso {
+    display: block;
+    background-color: #fff8e1;
+    color: #8a6500;
+    border: 1px solid #ffecb5;
+}
+
+.mensagem.sucesso,
+.mensagem.erro {
+    display: block !important;
+}
+
+#sessao-expirada {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+#sessao-expirada .modal-caixa {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+#sessao-expirada h2 {
+    margin-bottom: 15px;
+}
+
+#sessao-expirada p {
+    margin-bottom: 20px;
+}

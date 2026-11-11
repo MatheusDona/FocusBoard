@@ -7,6 +7,7 @@ from app.routes.usuarios import router as usuario_router
 from app.routes.tarefas import router as tarefas_router
 from fastapi.openapi.utils import get_openapi
 from fastapi.security import HTTPBearer
+from fastapi.middleware.cors import CORSMiddleware
 
 bearer_scheme = HTTPBearer()
 
@@ -42,6 +43,15 @@ app = FastAPI(
     description="Sistema de gerenciamento de tarefas",
     version="1.0.0"
 )
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://127.0.0.1:5500", "http://localhost:5500"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
 app.include_router(auth_router)
 app.include_router(usuario_router)
 app.include_router(tarefas_router)

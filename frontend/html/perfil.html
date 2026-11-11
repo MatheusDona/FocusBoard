@@ -1,73 +1,96 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FocusBoard - Meu perfil</title>
-  <link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusBoard - Meu perfil</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
-  <!-- Menu lateral -->
-  <aside class="menu-lateral">
-    <div class="logo">FocusBoard</div>
-    <nav>
-      <a href="index.html">Principal</a>
-      <a href="perfil.html" class="ativo">Meu perfil</a>
-    </nav>
-    <a href="#confirmar-sair" class="botao-sair">Sair</a>
-  </aside>
+    <aside class="menu-lateral">
+        <div class="logo">FocusBoard</div>
+        <nav>
+            <a href="index.html">Principal</a>
+            <a href="perfil.html" class="ativo">Meu perfil</a>
+        </nav>
+        <a href="#confirmar-sair" class="botao-sair">Sair</a>
+    </aside>
 
-  <main class="conteudo">
-    <div class="topo">
-      <h1>Meu perfil</h1>
+    <main class="conteudo">
+        <div class="topo">
+            <h1>Meu perfil</h1>
+        </div>
+
+        <section class="secao">
+            <h2>Informações da conta</h2>
+
+            <p>E-mail: <span id="email-atual">Carregando...</span></p>
+
+            <form id="form-nome">
+                <label for="usuario">Nome de usuário</label>
+                <input type="text" id="usuario" name="usuario" required>
+
+                <button type="submit" class="botao">Salvar nome</button>
+                <div id="mensagem-nome" class="mensagem"></div>
+            </form>
+        </section>
+
+        <section class="secao">
+            <h2>Alterar senha</h2>
+
+            <form id="form-senha">
+                <label for="senha_antiga">Senha atual</label>
+                <input type="password" id="senha_antiga" required>
+
+                <label for="senha_nova">Nova senha</label>
+                <input type="password" id="senha_nova" minlength="8" required>
+
+                <label for="confirmar_senha">Confirmar nova senha</label>
+                <input type="password" id="confirmar_senha" minlength="8" required>
+
+                <button type="submit" class="botao">Alterar senha</button>
+                <div id="mensagem-senha" class="mensagem"></div>
+            </form>
+        </section>
+
+        <section class="secao">
+            <h2>Sair da conta</h2>
+            <a href="#confirmar-sair" class="botao botao-perigo">Sair</a>
+        </section>
+    </main>
+
+    <div class="modal" id="confirmar-sair">
+        <div class="modal-caixa">
+            <h2>Sair da conta?</h2>
+            <p>Tem certeza que deseja sair?</p>
+
+            <div class="botoes-form">
+                <a href="#" class="botao botao-cinza">Cancelar</a>
+                <button type="button" id="confirmar-sair-btn" class="botao botao-perigo">
+                    Sim, sair
+                </button>
+            </div>
+        </div>
     </div>
 
-    <!-- Alterar nome de usuário -->
-    <section class="secao">
-      <h2>Nome de usuário</h2>
-      <form action="#" method="post">
-        <label for="usuario">Novo nome de usuário</label>
-        <input type="text" id="usuario" name="usuario" required>
-        <button type="submit" class="botao">Salvar nome</button>
-      </form>
-    </section>
+    <div class="modal" id="sessao-expirada">
+      <div class="modal-caixa">
+          <h2>Sessão expirada</h2>
 
-    <!-- Alterar senha -->
-    <section class="secao">
-      <h2>Senha</h2>
-      <form action="#" method="post">
-        <label for="senha_antiga">Senha atual</label>
-        <input type="password" id="senha_antiga" name="senha_antiga" required>
+          <p>
+              Sua sessão expirou por segurança.
+              Faça login novamente para continuar.
+          </p>
 
-        <label for="senha_nova">Nova senha</label>
-        <input type="password" id="senha_nova" name="senha_nova" minlength="8" required>
-
-        <label for="confirmar_senha">Confirmar nova senha</label>
-        <input type="password" id="confirmar_senha" name="confirmar_senha" minlength="8" required>
-
-        <button type="submit" class="botao">Alterar senha</button>
-      </form>
-    </section>
-
-    <!-- Sair -->
-    <section class="secao">
-      <h2>Sair da conta</h2>
-      <a href="#confirmar-sair" class="botao botao-perigo">Sair</a>
-    </section>
-  </main>
-
-  <!-- Janela de confirmação para sair -->
-  <div class="modal" id="confirmar-sair">
-    <div class="modal-caixa">
-      <h2>Sair da conta?</h2>
-      <p>Tem certeza que deseja sair?</p>
-      <div class="botoes-form">
-        <a href="#" class="botao botao-cinza">Cancelar</a>
-        <a href="login.html" class="botao botao-perigo">Sim, sair</a>
+          <button type="button" id="ir-login" class="botao">
+              Ir para o login
+          </button>
       </div>
     </div>
-  </div>
+    <script src="../js/api.js"></script>
+    <script src="../js/perfil.js"></script>
 
 </body>
 </html>

@@ -15,3 +15,14 @@ class UsuarioResponse(BaseModel):
 class UsuarioLogin(BaseModel):
     email: EmailStr
     senha: str
+
+class UsuarioUpdateNome(BaseModel):
+    nome: str
+
+class UsuarioUpdateSenha(BaseModel):
+    senha_atual: str
+    nova_senha: str
+    confirmar_senha: str
+
+class ReenviarConfirmacao(BaseModel):
+    email: EmailStr

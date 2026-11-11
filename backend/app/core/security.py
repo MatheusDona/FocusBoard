@@ -11,6 +11,35 @@ def hash_senha(senha: str):
 def verificar_senha(senha: str, senha_hash: str):
     return password_hash.verify(senha, senha_hash)
 
+def criar_token_confirmacao(usuario_id: int):
+    expiracao = datetime.now(timezone.utc) + timedelta(minutes=15)
+
+    dados_token = {
+        "sub": str(usuario_id),
+        "exp": expiracao,
+        "type": "email_confirmation"
+    }
+
+    token = jwt.encode(dados_token, SECRET_KEY, algorithm=ALGORITHM)
+
+    return token
+
+def verificar_token_confirmacao(token: str):
+    try:
+        dados = jwt.decode(
+            token,
+            SECRET_KEY,
+            algorithms=[ALGORITHM]
+        )
+
+        if dados.get("type") != "email_confirmation":
+            return None
+        
+        return dados
+
+    except jwt.InvalidTokenError:
+        return None
+
 def criar_token(usuario_id: int):
     expiracao = datetime.now(timezone.utc) + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
 

@@ -20,7 +20,7 @@ async function carregarTarefas() {
         tarefas = await apiRequest("/tarefas")
         renderizarTarefas()
     } catch (erro) {
-        alert(erro.message)
+        if (erro.message !== "Sessão expirada") alert(erro.message)
     }
 }
 
@@ -100,7 +100,7 @@ formTarefa.addEventListener("submit", async (event) => {
         await carregarTarefas()
 
     } catch (erro) {
-        alert(erro.message)
+        if (erro.message !== "Sessão expirada") alert(erro.message)
     }
 })
 
@@ -126,7 +126,7 @@ formEditar.addEventListener("submit", async (event) => {
         await carregarTarefas()
 
     } catch (erro) {
-        alert(erro.message)
+        if (erro.message !== "Sessão expirada") alert(erro.message)
     }
 })
 
@@ -158,7 +158,7 @@ formStatus.addEventListener("submit", async (event) => {
         await carregarTarefas()
 
     } catch (erro) {
-        alert(erro.message)
+        if (erro.message !== "Sessão expirada") alert(erro.message)
     }
 })
 
@@ -223,7 +223,7 @@ document.getElementById("confirmar-prazo-btn").addEventListener("click", async (
         await carregarTarefas()
 
     } catch (erro) {
-        alert(erro.message)
+        if (erro.message !== "Sessão expirada") alert(erro.message)
     }
 })
 
@@ -245,7 +245,7 @@ document.getElementById("confirmar-exclusao-btn").addEventListener("click", asyn
         await carregarTarefas()
 
     } catch (erro) {
-        alert(erro.message)
+        if (erro.message !== "Sessão expirada") alert(erro.message)
     }
 })
 

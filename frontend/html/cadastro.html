@@ -20,11 +20,23 @@
       <input type="text" id="usuario" name="usuario" required>
 
       <label for="senha">Senha</label>
-      <input type="password" id="senha" name="senha" minlength="8" required>
+      <div class="campo-senha">
+        <input type="password" id="senha" name="senha" minlength="8" autocomplete="new-password" required>
+        <button type="button" class="alternar-senha" data-password-toggle="senha" aria-label="Mostrar senha" title="Mostrar senha">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
 
       <label for="confirmar_senha">Confirmar senha</label>
-      <input type="password" id="confirmar_senha" name="confirmar_senha" minlength="8" required>
+      <div class="campo-senha">
+        <input type="password" id="confirmar_senha" name="confirmar_senha" minlength="8" autocomplete="new-password" required>
+        <button type="button" class="alternar-senha" data-password-toggle="confirmar_senha" aria-label="Mostrar senha" title="Mostrar senha">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
 
+      <div class="mensagem aviso mensagem-fixa" role="note">Após fazer seu cadastro, confirme seu e-mail e depois faça login para entrar no FocusBoard.</div>
+      <div id="mensagem-cadastro" class="mensagem" role="alert" aria-live="polite"></div>
       <button type="submit" class="botao">Criar conta</button>
     </form>
 

@@ -14,3 +14,9 @@ __pycache__/
 
 # Configurações do VS Code
 .vscode/
+frontend/node_modules/
+frontend/dist/
+.vercel/
+*.log
+
+.md 

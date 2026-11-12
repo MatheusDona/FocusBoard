@@ -397,3 +397,154 @@ textarea { height: 80px; resize: vertical; }
 #sessao-expirada p {
     margin-bottom: 20px;
 }
+
+/* ----- Modais de confirmação e avisos ----- */
+.modal-sessao,
+#confirmar-excluir-conta {
+    display: none;
+    position: fixed;
+    inset: 0;
+    padding: 20px;
+    background: rgba(18, 30, 50, 0.62);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-sessao .modal-caixa,
+#confirmar-excluir-conta .modal-caixa {
+    width: 100%;
+    max-width: 430px;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.22);
+    animation: aparecer-modal .2s ease-out;
+}
+
+.modal-sessao h2,
+#confirmar-excluir-conta h2 {
+    margin: 12px 0;
+    color: #263449;
+}
+
+.modal-sessao p,
+#confirmar-excluir-conta p {
+    color: #667085;
+    line-height: 1.6;
+    margin: 0 0 18px;
+}
+
+.modal-icone {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: #fff3cd;
+    color: #946200;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.modal-perigo .modal-icone {
+    background: #ffebee;
+    color: #c62828;
+}
+
+#confirmar-excluir-conta .botoes-form {
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.botao:disabled {
+    opacity: .65;
+    cursor: not-allowed;
+}
+
+.secao-excluir-conta {
+    border: 1px solid #ffcdd2;
+}
+
+.secao-excluir-conta h2 {
+    color: #b3261e;
+}
+
+.secao-excluir-conta p {
+    color: #667085;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+@keyframes aparecer-modal {
+    from { opacity:  0; transform: translateY(8px) scale(.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 650px) {
+    .conteudo { margin-left: 0; padding: 16px; }
+    .menu-lateral { position: relative; width: 100%; height: auto; }
+    .menu-lateral nav { display: flex; gap: 8px; }
+    .botao-sair { margin-top: 12px; }
+}
+
+
+/* ----- Campos de senha com controle de visibilidade ----- */
+.campo-senha {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.campo-senha input {
+    width: 100%;
+    padding-right: 46px;
+}
+
+.alternar-senha {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 5px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: #68758a;
+    cursor: pointer;
+}
+
+.alternar-senha:hover {
+    background: #edf2f8;
+    color: #2f5fb8;
+}
+
+.alternar-senha svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.mensagem-fixa {
+    display: block;
+    margin: 14px 0;
+    line-height: 1.5;
+}
+
+#mensagem-cadastro,
+#mensagem-login {
+    margin-bottom: 12px;
+}

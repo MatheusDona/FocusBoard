@@ -8,6 +8,7 @@ from app.routes.tarefas import router as tarefas_router
 from fastapi.openapi.utils import get_openapi
 from fastapi.security import HTTPBearer
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
 bearer_scheme = HTTPBearer()
 
@@ -44,9 +45,19 @@ app = FastAPI(
     version="1.0.0"
 )
 
+origens_frontend = [
+    origem.strip().rstrip("/")
+    for origem in os.getenv("FRONTEND_URL", "").split(",")
+    if origem.strip()
+]
+origens_frontend.extend([
+    "http://127.0.0.1:5500",
+    "http://localhost:5500",
+])
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:5500", "http://localhost:5500"],
+    allow_origins=origens_frontend,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]

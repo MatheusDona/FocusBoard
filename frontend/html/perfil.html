@@ -45,14 +45,32 @@
                 <input type="password" id="senha_antiga" required>
 
                 <label for="senha_nova">Nova senha</label>
-                <input type="password" id="senha_nova" minlength="8" required>
+                <div class="campo-senha">
+                    <input type="password" id="senha_nova" minlength="8" autocomplete="new-password" required>
+                    <button type="button" class="alternar-senha" data-password-toggle="senha_nova" aria-label="Mostrar senha" title="Mostrar senha">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                </div>
 
                 <label for="confirmar_senha">Confirmar nova senha</label>
-                <input type="password" id="confirmar_senha" minlength="8" required>
+                <div class="campo-senha">
+                    <input type="password" id="confirmar_senha" minlength="8" autocomplete="new-password" required>
+                    <button type="button" class="alternar-senha" data-password-toggle="confirmar_senha" aria-label="Mostrar senha" title="Mostrar senha">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                </div>
 
                 <button type="submit" class="botao">Alterar senha</button>
                 <div id="mensagem-senha" class="mensagem"></div>
             </form>
+        </section>
+
+        <section class="secao secao-excluir-conta">
+            <h2>Excluir conta</h2>
+            <p>Essa ação apagará sua conta e não poderá ser desfeita.</p>
+            <button type="button" id="abrir-excluir-conta" class="botao botao-perigo">
+                Excluir minha conta
+            </button>
         </section>
 
         <section class="secao">
@@ -71,6 +89,19 @@
                 <button type="button" id="confirmar-sair-btn" class="botao botao-perigo">
                     Sim, sair
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="confirmar-excluir-conta">
+        <div class="modal-caixa modal-perigo">
+            <div class="modal-icone">!</div>
+            <h2>Excluir sua conta?</h2>
+            <p>Tem certeza de que deseja excluir sua conta? Seus dados e tarefas serão apagados permanentemente. Essa ação não poderá ser desfeita.</p>
+            <div id="mensagem-excluir-conta" class="mensagem"></div>
+            <div class="botoes-form">
+                <button type="button" id="cancelar-excluir-conta" class="botao botao-cinza">Cancelar</button>
+                <button type="button" id="confirmar-excluir-conta-btn" class="botao botao-perigo">Sim, excluir conta</button>
             </div>
         </div>
     </div>

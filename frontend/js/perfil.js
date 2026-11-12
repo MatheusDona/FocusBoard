@@ -91,3 +91,37 @@ document.getElementById("form-senha").addEventListener("input", () => {
 })
 
 carregarPerfil()
+// Exclusão da conta
+const modalExcluirConta = document.getElementById("confirmar-excluir-conta")
+
+document.getElementById("abrir-excluir-conta").addEventListener("click", () => {
+    document.getElementById("mensagem-excluir-conta").className = "mensagem"
+    document.getElementById("mensagem-excluir-conta").textContent = ""
+    document.getElementById("confirmar-excluir-conta-btn").disabled = false
+    modalExcluirConta.style.display = "flex"
+})
+
+document.getElementById("cancelar-excluir-conta").addEventListener("click", () => {
+    modalExcluirConta.style.display = "none"
+})
+
+document.getElementById("confirmar-excluir-conta-btn").addEventListener("click", async () => {
+    const botao = document.getElementById("confirmar-excluir-conta-btn")
+    const mensagem = document.getElementById("mensagem-excluir-conta")
+
+    botao.disabled = true
+    botao.textContent = "Excluindo..."
+
+    try {
+        await apiRequest("/usuarios/me", { method: "DELETE" })
+        localStorage.removeItem("token")
+        window.location.href = "login.html?conta_excluida=1"
+    } catch (erro) {
+        if (erro.message !== "Sessão expirada") {
+            mensagem.textContent = erro.message
+            mensagem.className = "mensagem erro"
+            botao.disabled = false
+            botao.textContent = "Sim, excluir conta"
+        }
+    }
+})

@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
+import os
 from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models.usuario import Usuario
@@ -33,7 +34,7 @@ def registrar_usuario(dados: UsuarioCreate, db: Session = Depends(get_db)):
 
     token = criar_token_confirmacao(novo_usuario.id)
 
-    link_confirmacao = f"http://127.0.0.1:8000/confirmar-email?token={token}"
+    link_confirmacao = f"{os.getenv('BACKEND_URL', 'http://127.0.0.1:8000').rstrip('/')}/confirmar-email?token={token}"
 
     enviar_email(
         destinatario=novo_usuario.email,
@@ -71,7 +72,7 @@ def reenviar_confirmacao(dados: ReenviarConfirmacao, db: Session = Depends(get_d
 
     token = criar_token_confirmacao(usuario.id)
 
-    link_confirmacao = f"http://127.0.0.1:8000/confirmar-email?token={token}"
+    link_confirmacao = f"{os.getenv('BACKEND_URL', 'http://127.0.0.1:8000').rstrip('/')}/confirmar-email?token={token}"
 
     enviar_email(
         destinatario=usuario.email,
